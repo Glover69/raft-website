@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             <Image src="/svgs/chevron-right.svg" alt="" width={20} height={20}/>
         </div>
         <span className="SFRegular text-4xl text-center">Building the future of banking.</span>
-        <span className="SFRegular text-[#BDBDBD] text-center">Experience the future of banking with RAFT. We're here to empower your financial journey.</span>
+        <span className="SFRegular text-[#BDBDBD] text-center">Experience the future of banking with RAFT. We&apos;re here to empower your financial journey.</span>
 
         <button className="bg-[#2B892E] SFMedium rounded-[6rem] px-8 py-4">Get Started</button>
      </div>
