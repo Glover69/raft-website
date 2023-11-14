@@ -19,7 +19,7 @@ const divStyle: React.CSSProperties = {
   };
 
   const innerBG: React.CSSProperties = {
-    backgroundColor: 'linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%)',
+    background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%)',
   };
 
 const Hero: React.FC = () => {
