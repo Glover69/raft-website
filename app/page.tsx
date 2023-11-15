@@ -6,6 +6,11 @@ import SeamlessPaymentsCard from "../components/seamless-payment-card";
 import SmartInvestingCard from "../components/smart-investing-card";
 import WealthManagementCard from "../components/wealth-management-card";
 import FinancialPlanningCard from "../components/financial-planning-card";
+import MoneySendCard from "../components/money-send-card";
+import MoneyReceiveCard from "../components/money-receive-card";
+import FreedomFeatures from "../components/freedomFeatures";
+import GreenBanner from "../components/green-banner";
+
 
 export default function Home() {
 
@@ -23,6 +28,13 @@ export default function Home() {
     { text: '+ $300.52 Received from Cooper Kristin' },
     { text: '+ $50.00 Received from Miles Esther' },
   ];
+
+  const freedomFeatures = [   
+    {icon: '/svgs/cash-white.svg', title: 'No minimum balance fees', subtitle: 'Say goodbye to minimum balance fees. Your account, your balance—no hidden charges'},
+    {icon: '/svgs/coins-white.svg', title: 'No monthly fees', subtitle: 'Bank with us without worrying about monthly fees. Keep more of your money where it belongs—in your account'},
+    {icon: '/svgs/arrows-right-left.svg', title: 'No bank transfer fees', subtitle: 'Seamlessly transfer funds without the extra cost. Send and receive money with zero bank transfer fees.'}
+  ];
+
 
   const heroImage: React.CSSProperties = {
     backgroundImage: 'url("/images/financial-freedom-bg.jpeg")',
@@ -57,19 +69,30 @@ export default function Home() {
        
       </div>
 
-      <div className="financial-freedom-section flex flex-col items-center justify-center gap-24 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
+      <div className="financial-freedom-section flex flex-col items-center justify-center gap-12 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
         <div className="flex flex-col items-center justify-center gap-6">
         <span className="SFRegular text-4xl w-[90%] leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">Your Financial Freedom, Your Way</span>
         <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">We believe that managing your finances should be effortless and cost-effective. That&apos;s why we offer you the freedom you deserve</span>
         </div>
 
-        <div style={heroImage} className="h-[24rem] lg:h-[35rem] xl:h-[45rem] 3xl:h-[55rem] w-full rounded-lg">
-        <div style={innerBG} className="inner w-full h-full">
+        <div style={heroImage} className="h-[24rem] mt-6 lg:h-[35rem] xl:h-[45rem] 3xl:h-[55rem] w-full rounded-lg">
+        <div style={innerBG} className="inner w-full h-full overflow-hidden relative">
+          <MoneySendCard/>
+          <MoneyReceiveCard/>
 
         </div>
-     </div>
+        </div>
+
+        <div className="flex flex-col items-start gap-8 lg:grid lg:grid-cols-3">
+         <FreedomFeatures dataArray={freedomFeatures}/>
+
+        </div>
        
       </div>
+
+      <GreenBanner/>
+
+      
     </main>
   );
 }
