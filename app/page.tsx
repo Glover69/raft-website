@@ -5,7 +5,7 @@ import FeatureSection from "../components/feature-section";
 import SeamlessPaymentsCard from "../components/seamless-payment-card";
 import SmartInvestingCard from "../components/smart-investing-card";
 import WealthManagementCard from "../components/wealth-management-card";
-import FinancialPlanningCard from "@/components/financial-planning-card";
+import FinancialPlanningCard from "../components/financial-planning-card";
 
 export default function Home() {
 
