@@ -30,7 +30,7 @@ body {
 }
 
 /* Add another border with box-shadow */
-.trans-card{
+.transaction-card{
   /* box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 2px #FFFFFF00; Adjust color and width as needed */
   /* box-shadow: 0px 1px 0px 1px linear-gradient(#FFFFFF, #FFFFFF00); */
   /* border-top: 1px solid linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); */
@@ -38,6 +38,17 @@ body {
   border-image-slice: 1; /* This defines the portion of the border image that is preserved (in this case, the entire border) */
 
 
+}
+
+.transaction-card:nth-child(odd) span{
+  font-size: 0.8rem;
+
+}
+
+@media (min-width: 1024px) {
+  .transaction-card:nth-child(odd) span{
+    font-size: 1.125rem;
+  }
 }
 
 
