@@ -12,6 +12,7 @@ import FreedomFeatures from "../components/freedomFeatures";
 import GreenBanner from "../components/green-banner";
 import ConfidentFutureCards from "../components/confident-future-cards";
 import VideoBackground from "../components/videoBackground";
+import NextGenFeatures from "../components/nextGenFeatures";
 
 
 export default function Home() {
@@ -29,6 +30,12 @@ export default function Home() {
     { text: '+ $22.15 Received from Nguyen Shane' },
     { text: '+ $300.52 Received from Cooper Kristin' },
     { text: '+ $50.00 Received from Miles Esther' },
+  ];
+
+  const nextGenFeatures = [   
+    {icon: '/svgs/document-duplicate.svg', title: 'Contactless Technology', subtitle: 'Our new cards come equipped with contactless technology, allowing you to make swift, secure payments with a simple tap.'},
+    {icon: '/svgs/identification.svg', title: 'Personalization', subtitle: 'Customize your card to reflect your unique style. Choose from a range of designs that suit your personality.'},
+    {icon: '/svgs/lock-closed.svg', title: 'Enhanced Security', subtitle: 'Your peace of mind is our priority. Our cards feature advanced security measures to protect your transactions and data.'}
   ];
 
   const freedomFeatures = [   
@@ -136,6 +143,25 @@ export default function Home() {
       </div>
 
       <VideoBackground/>
+
+      <div className="flex flex-col items-center justify-center gap-16 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
+        <div className="flex flex-col items-center justify-center gap-4">
+        <span className="SFRegular uppercase text-[#48D64C]">Introducing</span>
+        <span className="SFRegular text-4xl w-[90%] leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">Introducing RAFT&apos;s Next-Gen Cards</span>
+        <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">Discover RAFT&apos;s latest innovation - our new cards. Elevate your banking experience with cutting-edge features, security, and unprecedented convenience.</span>
+        </div>
+
+        {/* <Image className="" src="/images/credit-card.png" alt="" /> */}
+        <img src="/images/credit-card.png" alt="" />
+      
+
+        <div className="flex flex-col items-start gap-8 lg:grid lg:grid-cols-3">
+         <NextGenFeatures dataArray={nextGenFeatures}/>
+
+        </div>
+       
+      </div>
+      
 
       
     </main>

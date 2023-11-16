@@ -37,7 +37,7 @@ const ConfidentFutureCards: React.FC<confidentFutureCards> = ({
               className="layer w-full h-full absolute top-8"
             ></div>
 
-            <Image className="absolute" src={item.icon} alt="" width={120} height={120} />
+            <Image className="absolute z-10" src={item.icon} alt="" width={120} height={120} />
           </div>
 
           <div className="bottom w-full flex flex-col items-start gap-4">

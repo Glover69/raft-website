@@ -80,9 +80,9 @@ const VideoBackground: React.FC = () => {
         },
       });
 
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    // return () => {
+    //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    // };
 
 
     // videoRef.current?.play();
@@ -94,7 +94,6 @@ const VideoBackground: React.FC = () => {
       <video
         className="w-full h-full object-cover absolute top-0 left-0"
         ref={videoRef}
-        autoPlay
         muted
         loop
         playsInline
