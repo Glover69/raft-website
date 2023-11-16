@@ -12,9 +12,11 @@ body {
   color: white;
 }
 
+@media (max-width: 767px) {
 .transaction-card:nth-child(odd) span{
   font-size: 0.8rem;
 
+}
 }
 
 @media (min-width: 1024px) {

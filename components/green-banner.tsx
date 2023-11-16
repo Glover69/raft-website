@@ -62,7 +62,7 @@ const GreenBanner: React.FC = () => {
   }, []);
 
   return (
-    <div className="main-green-container bg-[#48D64C] w-full h-fit p-6 md:p-10 lg:p-12 xl:p-20 flex">
+    <div className="main-green-container bg-[#48D64C] w-full h-fit p-6 md:p-10 lg:p-12 xl:p-24 2xl:p-32 flex">
         <span className="split-text text-[#070606] SFRegular text-6xl leading-[4.5rem] md:text-8xl md:leading-[7.5rem] xl:text-9xl xl:leading-[8.5rem] 2xl:text-[9rem] 2xl:leading-[9.5rem] lg:w-[90%]">
           Smart investments, secure payments, and expert guidance, all in one
         </span>
