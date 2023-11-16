@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 import Navbar from "../components/navbar";
 import Hero from "../components/hero";
@@ -13,6 +14,7 @@ import GreenBanner from "../components/green-banner";
 import ConfidentFutureCards from "../components/confident-future-cards";
 import VideoBackground from "../components/videoBackground";
 import NextGenFeatures from "../components/nextGenFeatures";
+import CountingStats from "../components/countingStats";
 
 
 export default function Home() {
@@ -116,27 +118,7 @@ export default function Home() {
           <ConfidentFutureCards dataArray={confidentFutureCards}/>
         </div>
 
-        <div className="flex flex-row items-center justify-between md:max-lg:justify-center md:gap-16 w-full">
-          <div className="cities flex flex-col gap-4 items-center">
-            <span className="SFMedium text-xl md:text-3xl lg:text-6xl">50<span className="plus">+</span></span>
-            <span className="SFRegular text-[#BDBDBD] uppercase text-sm">Cities</span>
-          </div>
-
-          <div className="cities flex flex-col gap-4 items-center">
-            <span className="SFMedium text-xl md:text-3xl lg:text-6xl">50,000<span className="plus">+</span></span>
-            <span className="SFRegular text-[#BDBDBD] uppercase text-sm">Transactions</span>
-          </div>
-
-          <div className="cities flex flex-col gap-4 items-center">
-            <span className="SFMedium text-xl md:text-3xl lg:text-6xl">3<span className="plus">M+</span></span>
-            <span className="SFRegular text-[#BDBDBD] uppercase text-sm">Users</span>
-          </div>
-
-          <div className="cities flex flex-col gap-4 items-center">
-            <span className="SFMedium text-xl md:text-3xl lg:text-6xl">5</span>
-            <span className="SFRegular text-[#BDBDBD] uppercase text-sm">User Ratings</span>
-          </div>
-        </div>
+        <CountingStats/>
 
       
        
