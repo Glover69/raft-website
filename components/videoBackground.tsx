@@ -75,7 +75,7 @@ const VideoBackground: React.FC = () => {
           start: 'top 50%',
           // end: 'top center',
           scrub: true,
-          markers: true,
+        //   markers: true,
           // pin: true
         },
       });
@@ -99,7 +99,7 @@ const VideoBackground: React.FC = () => {
         loop
         playsInline
       >
-        <source src="/videos/group-selfie.mp4" type="video/mp4" />
+        <source src="/videos/group-selfie-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>

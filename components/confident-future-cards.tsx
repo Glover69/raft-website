@@ -9,12 +9,6 @@ const cardTopBG: React.CSSProperties = {
   backgroundPosition: "center",
 };
 
-const personImg: React.CSSProperties = {
-  backgroundImage: 'url("/images/person-img.png")',
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-};
-
 const overlay: React.CSSProperties = {
   background:
     "linear-gradient(180deg, rgba(19, 19, 19, 0.00) 0%, #131313 100%)",
@@ -43,7 +37,7 @@ const ConfidentFutureCards: React.FC<confidentFutureCards> = ({
               className="layer w-full h-full absolute top-8"
             ></div>
 
-            <Image src={item.icon} alt="" width={120} height={120} />
+            <Image className="absolute" src={item.icon} alt="" width={120} height={120} />
           </div>
 
           <div className="bottom w-full flex flex-col items-start gap-4">
