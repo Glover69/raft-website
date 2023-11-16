@@ -25,7 +25,7 @@ const CountingStats = () => {
       scrollTrigger: {
         trigger: countOne,
         start: 'bottom 70%',
-        markers: true,
+        // markers: true,
       }
     });
 
