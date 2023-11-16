@@ -99,7 +99,7 @@ const VideoBackground: React.FC = () => {
         loop
         playsInline
       >
-        <source src="/videos/group-selfie-video.mp4" type="video/mp4" />
+        <source src="/videos/group-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
