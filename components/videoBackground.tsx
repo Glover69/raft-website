@@ -21,10 +21,9 @@ const overlay: React.CSSProperties = {
 
 const VideoBackground: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const layer = document.querySelector('.layer');
 
   useEffect(() => {
-
+    const layer = document.querySelector('.layer-video');
     const videoElement = videoRef.current;
 
     if (!videoElement) return;
@@ -49,37 +48,37 @@ const VideoBackground: React.FC = () => {
       },
     });
 
-    // gsap.fromTo('.layer', {
+    // gsap.fromTo(layer, {
     //     opacity: 0
     // }, 
     // {
     //     opacity: 1,
     //     scrollTrigger: {
-    //         trigger: '.layer',
+    //         trigger: layer,
     //         start: 'top center',
     //         end: 'bottom center',
     //         scrub: true,
     //     }
     // })
 
-    // gsap.fromTo(layer, {
-    //     opacity: 0.2,
-    //   },
-    //   {
-    //     backgroundPositionX: '0%',
-    //     opacity: 1,
-    //     x: 100,
-    //     stagger: 0.2,
-    //     ease: 'back.out',
-    //     scrollTrigger: {
-    //       trigger: layer,
-    //       start: 'top 50%',
-    //       // end: 'top center',
-    //       scrub: true,
-    //       markers: true,
-    //       // pin: true
-    //     },
-    //   });
+    gsap.fromTo(layer, {
+        opacity: 0.2,
+      },
+      {
+        backgroundPositionX: '0%',
+        opacity: 1,
+        // x: 100,
+        // stagger: 0.2,
+        ease: 'back.out',
+        scrollTrigger: {
+          trigger: layer,
+          start: 'top 50%',
+          // end: 'top center',
+          scrub: true,
+          markers: true,
+          // pin: true
+        },
+      });
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -91,7 +90,7 @@ const VideoBackground: React.FC = () => {
 
   return (
     <div className="video-background h-[30rem] lg:h-[40rem] xl:h-[45rem] 2xl:h-[50rem] relative">
-      <div className="layer w-full h-full absolute bg-[#00000075] top-0 left-0 z-10"></div>
+      <div className="layer-video w-full h-full absolute bg-[#00000075] top-0 left-0 z-10"></div>
       <video
         className="w-full h-full object-cover absolute top-0 left-0"
         ref={videoRef}
