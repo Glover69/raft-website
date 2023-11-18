@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
+import { TLSSocket } from "tls";
 
 const divStyle: React.CSSProperties = {
     backgroundImage: 'url("/images/mesh-bg.png")',
@@ -35,6 +36,7 @@ const Hero: React.FC<HeroProps> = ({ onAnimationStart }) => {
       console.log('Hello');
 
       const heroTextMain = document.querySelector('.main-hero-text');
+
 
       gsap.fromTo(heroTextMain, {
         y: 50,

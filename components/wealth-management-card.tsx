@@ -22,10 +22,10 @@ const overlay: React.CSSProperties = {
 
 const WealthManagementCard: React.FC = () => {
   return (
-    <div className="card md:max-lg:w-[65%] px-5 flex flex-col items-center rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
+    <div className="card md:max-lg:w-[65%] h-full px-5 flex flex-col items-center rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
       <div
         style={cardTopBG}
-        className="top overflow-hidden w-full relative py-8 flex flex-col items-center gap-2"
+        className="top h-[-webkit-fill-available] overflow-hidden w-full relative py-8 flex flex-col items-center gap-2"
       >
         <div
           style={overlay}
@@ -37,13 +37,12 @@ const WealthManagementCard: React.FC = () => {
           <div className="top flex flex-row items-center gap-4">
             {/* image container */}
             <div style={personImg} className="rounded-full w-14 h-14">
-              
+
             </div>
 
             <div className="top-right flex flex-col items-start">
             <span className="SFRegular text-xl">Wade Warren</span>
             <span className="SFRegular text-sm text-[#989898]">Private Wealth Manager</span>
-
 
             </div>
           </div>
@@ -60,7 +59,7 @@ const WealthManagementCard: React.FC = () => {
         </div>
       </div>
 
-      <div className="bottom flex flex-col py-6 items-start gap-4">
+      <div className="bottom flex flex-col py-6 items-start justify-center gap-4">
         <span className="SFMedium text-2xl">Wealth Management</span>
         <span className="SFRegular text-[#BDBDBD]">
           Make informed decisions for your financial future with our wealth
@@ -68,6 +67,8 @@ const WealthManagementCard: React.FC = () => {
         </span>
       </div>
     </div>
+
+    
   );
 };
 

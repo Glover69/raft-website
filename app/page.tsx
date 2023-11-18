@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Image from "next/image";
 import Navbar from "../components/navbar";
 import Hero from "../components/hero";
@@ -17,54 +17,110 @@ import NextGenFeatures from "../components/nextGenFeatures";
 import CountingStats from "../components/countingStats";
 import ReviewsSection from "../components/reviews-section";
 import LoadingScreen from "../components/loading-page";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-
+import locomotiveScroll from "locomotive-scroll";
+import { SmoothScrollProvider } from "../public/contexts/SmoothScroll.context";
 
 export default function Home() {
+  // const scrollRef = useRef<HTMLDivElement | null>(null);
+  // useEffect(() => {
+  //   const scroll = new locomotiveScroll({
+  //     el: document.querySelector("[data-scroll-container]"),
+  //     smooth: true,
+  //     // Add any other Locomotive Scroll options as needed
+  //   });
+
+  //   // Cleanup when the component unmounts
+  //   return () => {
+  //     if (scroll) {
+  //       scroll.destroy();
+  //     }
+  //   };
+  // }, []);
 
   const boxes = [
-    { icon: '/svgs/wallet-white.svg' },
-    { icon: '/svgs/ticket-white.svg' },
-    { icon: '/svgs/cash-white.svg' },
-    { icon: '/svgs/shopping-bag-white.svg' },
-    { icon: '/svgs/present-white.svg' },
-    { icon: '/svgs/report-white.svg' },
+    { icon: "/svgs/wallet-white.svg" },
+    { icon: "/svgs/ticket-white.svg" },
+    { icon: "/svgs/cash-white.svg" },
+    { icon: "/svgs/shopping-bag-white.svg" },
+    { icon: "/svgs/present-white.svg" },
+    { icon: "/svgs/report-white.svg" },
   ];
 
-  const transactionCards = [   
-    { text: '+ $22.15 Received from Nguyen Shane' },
-    { text: '+ $300.52 Received from Cooper Kristin' },
-    { text: '+ $50.00 Received from Miles Esther' },
+  const transactionCards = [
+    { text: "+ $22.15 Received from Nguyen Shane" },
+    { text: "+ $300.52 Received from Cooper Kristin" },
+    { text: "+ $50.00 Received from Miles Esther" },
   ];
 
-  const nextGenFeatures = [   
-    {icon: '/svgs/document-duplicate.svg', title: 'Contactless Technology', subtitle: 'Our new cards come equipped with contactless technology, allowing you to make swift, secure payments with a simple tap.'},
-    {icon: '/svgs/identification.svg', title: 'Personalization', subtitle: 'Customize your card to reflect your unique style. Choose from a range of designs that suit your personality.'},
-    {icon: '/svgs/lock-closed.svg', title: 'Enhanced Security', subtitle: 'Your peace of mind is our priority. Our cards feature advanced security measures to protect your transactions and data.'}
+  const nextGenFeatures = [
+    {
+      icon: "/svgs/document-duplicate.svg",
+      title: "Contactless Technology",
+      subtitle:
+        "Our new cards come equipped with contactless technology, allowing you to make swift, secure payments with a simple tap.",
+    },
+    {
+      icon: "/svgs/identification.svg",
+      title: "Personalization",
+      subtitle:
+        "Customize your card to reflect your unique style. Choose from a range of designs that suit your personality.",
+    },
+    {
+      icon: "/svgs/lock-closed.svg",
+      title: "Enhanced Security",
+      subtitle:
+        "Your peace of mind is our priority. Our cards feature advanced security measures to protect your transactions and data.",
+    },
   ];
 
-  const freedomFeatures = [   
-    {icon: '/svgs/cash-white.svg', title: 'No minimum balance fees', subtitle: 'Say goodbye to minimum balance fees. Your account, your balance—no hidden charges'},
-    {icon: '/svgs/coins-white.svg', title: 'No monthly fees', subtitle: 'Bank with us without worrying about monthly fees. Keep more of your money where it belongs—in your account'},
-    {icon: '/svgs/arrows-right-left.svg', title: 'No bank transfer fees', subtitle: 'Seamlessly transfer funds without the extra cost. Send and receive money with zero bank transfer fees.'}
+  const freedomFeatures = [
+    {
+      icon: "/svgs/cash-white.svg",
+      title: "No minimum balance fees",
+      subtitle:
+        "Say goodbye to minimum balance fees. Your account, your balance—no hidden charges",
+    },
+    {
+      icon: "/svgs/coins-white.svg",
+      title: "No monthly fees",
+      subtitle:
+        "Bank with us without worrying about monthly fees. Keep more of your money where it belongs—in your account",
+    },
+    {
+      icon: "/svgs/arrows-right-left.svg",
+      title: "No bank transfer fees",
+      subtitle:
+        "Seamlessly transfer funds without the extra cost. Send and receive money with zero bank transfer fees.",
+    },
   ];
 
-  const confidentFutureCards = [   
-    {icon: '/svgs/money-send-black.svg', title: 'Spend better', subtitle: 'Set and achieve financial goals with ease, automate your savings, and watch your money grow without the stress.'},
-    {icon: '/svgs/wallet-minus.svg', title: 'Invest better', subtitle: 'Set and achieve financial goals with ease, automate your savings, and watch your money grow without the stress.'},
+  const confidentFutureCards = [
+    {
+      icon: "/svgs/money-send-black.svg",
+      title: "Spend better",
+      subtitle:
+        "Set and achieve financial goals with ease, automate your savings, and watch your money grow without the stress.",
+    },
+    {
+      icon: "/svgs/wallet-minus.svg",
+      title: "Invest better",
+      subtitle:
+        "Set and achieve financial goals with ease, automate your savings, and watch your money grow without the stress.",
+    },
   ];
-
 
   const heroImage: React.CSSProperties = {
     backgroundImage: 'url("/images/financial-freedom-bg.jpeg")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    width: '100%',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100%",
   };
 
   const innerBG: React.CSSProperties = {
-    background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%)',
+    background:
+      "linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%)",
   };
 
   const [loadingScreenComplete, setLoadingScreenComplete] = useState(false);
@@ -79,97 +135,123 @@ export default function Home() {
     setNavbarComplete(true);
   };
 
-
   return (
-    
-    
-    <main className="main-container w-full relative">
-      <LoadingScreen onAnimationCompletion={handleLoadingScreenComplete}/>
-      {/* {loadingScreenComplete && <Navbar onAnimationStart={handleNavbarAnimationStart} />} */}
-      <Navbar onAnimationStart={loadingScreenComplete} onAnimationEnd={handleNavbarAnimationComplete} />
-      <Hero onAnimationStart={navbarComplete} />
-      <FeatureSection/>
+    <main data-scroll-container className="main-container w-full relative">
+      <SmoothScrollProvider options={{ smooth: true }}>
+        <LoadingScreen onAnimationCompletion={handleLoadingScreenComplete} />
+        {/* {loadingScreenComplete && <Navbar onAnimationStart={handleNavbarAnimationStart} />} */}
+        <Navbar
+          onAnimationStart={loadingScreenComplete}
+          onAnimationEnd={handleNavbarAnimationComplete}
+        />
+        <Hero onAnimationStart={navbarComplete} />
+        <FeatureSection />
 
-      <div className="journey-section flex flex-col items-center justify-center gap-24 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
-        <div className="flex flex-col items-center justify-center gap-6">
-        <span className="SFRegular text-4xl md:text-6xl lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">Elevate Your Financial Journey with RAFT</span>
-        <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">RAFT offers a world of financial possibilities. From investments to payments, we&apos;ve got you covered. Join us and unlock your financial potential today.</span>
-        </div>
-      
+        <div className="journey-section flex flex-col items-center justify-center gap-24 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
+          <div className="flex flex-col items-center justify-center gap-6">
+            <span className="SFRegular text-4xl md:text-6xl lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">
+              Elevate Your Financial Journey with RAFT
+            </span>
+            <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">
+              RAFT offers a world of financial possibilities. From investments
+              to payments, we&apos;ve got you covered. Join us and unlock your
+              financial potential today.
+            </span>
+          </div>
 
-        <div className="flex flex-col items-center gap-6 lg:grid grid-cols-3 grid-row-2">
-        <SeamlessPaymentsCard dataArray={transactionCards}/>
-        <SmartInvestingCard/>
-        <WealthManagementCard/>
-        <FinancialPlanningCard dataArray={boxes}/>
-        </div>
-       
-      </div>
-
-      <div className="financial-freedom-section flex flex-col items-center justify-center gap-12 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
-        <div className="flex flex-col items-center justify-center gap-6">
-        <span className="SFRegular text-4xl w-[90%] leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">Your Financial Freedom, Your Way</span>
-        <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">We believe that managing your finances should be effortless and cost-effective. That&apos;s why we offer you the freedom you deserve</span>
-        </div>
-
-        <div style={heroImage} className="h-[24rem] mt-6 lg:h-[35rem] xl:h-[45rem] 3xl:h-[55rem] w-full rounded-lg">
-        <div style={innerBG} className="inner w-full h-full overflow-hidden relative">
-          <MoneySendCard/>
-          <MoneyReceiveCard/>
-
-        </div>
+          <div className="flex flex-col items-center gap-6 lg:grid grid-cols-3 grid-row-2">
+            <SeamlessPaymentsCard dataArray={transactionCards} />
+            <SmartInvestingCard />
+            <WealthManagementCard />
+            <FinancialPlanningCard dataArray={boxes} />
+          </div>
         </div>
 
-        <div className="flex flex-col items-start gap-8 lg:grid lg:grid-cols-3">
-         <FreedomFeatures dataArray={freedomFeatures}/>
+        <div className="financial-freedom-section flex flex-col items-center justify-center gap-12 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
+          <div className="flex flex-col items-center justify-center gap-6">
+            <span className="SFRegular text-4xl w-[90%] leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">
+              Your Financial Freedom, Your Way
+            </span>
+            <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">
+              We believe that managing your finances should be effortless and
+              cost-effective. That&apos;s why we offer you the freedom you
+              deserve
+            </span>
+          </div>
 
-        </div>
-       
-      </div>
+          <div
+            style={heroImage}
+            className="h-[24rem] mt-6 lg:h-[35rem] xl:h-[45rem] 3xl:h-[55rem] w-full rounded-lg"
+          >
+            <div
+              style={innerBG}
+              className="inner w-full h-full overflow-hidden relative"
+            >
+              <MoneySendCard />
+              <MoneyReceiveCard />
+            </div>
+          </div>
 
-      <GreenBanner/>
-
-      <div className="flex flex-col items-center justify-center gap-24 px-6 py-24 md:px-10 xl:px-24 2xl:px-32 3xl:px-40">
-        <div className="flex w-full flex-col items-start justify-center gap-6">
-        <span className="SFRegular text-4xl leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-start">Confidently Shape Your Financial Future</span>
-        <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-left">At RAFT, we empower you to confidently shape your financial future. Our modern approach simplifies saving and investing, making it easier than ever.</span>
-        </div>
-
-        <div className="flex flex-col items-center gap-12 lg:flex-row">
-          <ConfidentFutureCards dataArray={confidentFutureCards}/>
-        </div>
-
-        <CountingStats/>
-
-      
-       
-      </div>
-
-      <VideoBackground/>
-
-      <div className="flex flex-col items-center justify-center gap-20 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
-        <div className="flex flex-col items-center justify-center gap-4">
-        <span className="SFRegular uppercase text-[#48D64C]">Introducing</span>
-        <span className="SFRegular text-4xl w-[90%] leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">Introducing RAFT&apos;s Next-Gen Cards</span>
-        <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">Discover RAFT&apos;s latest innovation - our new cards. Elevate your banking experience with cutting-edge features, security, and unprecedented convenience.</span>
+          <div className="flex flex-col items-start gap-8 lg:grid lg:grid-cols-3">
+            <FreedomFeatures dataArray={freedomFeatures} />
+          </div>
         </div>
 
-        <Image className="lg:w-72" src="/svgs/credit-card.svg" alt="" width={200} height={300}/>
-        {/* <img src="/images/credit-card-2.png" alt="" /> */}
-      
+        <GreenBanner />
 
-        <div className="flex flex-col items-start gap-8 lg:grid lg:grid-cols-3">
-         <NextGenFeatures dataArray={nextGenFeatures}/>
+        <div className="flex flex-col items-center justify-center gap-24 px-6 py-24 md:px-10 xl:px-24 2xl:px-32 3xl:px-40">
+          <div className="flex w-full flex-col items-start justify-center gap-6">
+            <span className="SFRegular text-4xl leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-start">
+              Confidently Shape Your Financial Future
+            </span>
+            <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-left">
+              At RAFT, we empower you to confidently shape your financial
+              future. Our modern approach simplifies saving and investing,
+              making it easier than ever.
+            </span>
+          </div>
 
+          <div className="flex flex-col items-center gap-12 lg:flex-row">
+            <ConfidentFutureCards dataArray={confidentFutureCards} />
+          </div>
+
+          <CountingStats />
         </div>
-       
-      </div>
 
-      {/* Reviews Section */}
-      <ReviewsSection/>
-      
+        <VideoBackground />
 
-      
+        <div className="flex flex-col items-center justify-center gap-20 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <span className="SFRegular uppercase text-[#48D64C]">
+              Introducing
+            </span>
+            <span className="SFRegular text-4xl w-[90%] leading-[3rem] md:text-6xl md:leading-[4.5rem] lg:text-7xl 3xl:text-9xl md:w-[40rem] lg:w-[45rem] 3xl:w-[75rem] lg:leading-[5rem] text-center">
+              Introducing RAFT&apos;s Next-Gen Cards
+            </span>
+            <span className="SFRegular text-[#989898] md:w-[35rem] md:text-xl lg:w-[40rem] lg:leading-9 text-center">
+              Discover RAFT&apos;s latest innovation - our new cards. Elevate
+              your banking experience with cutting-edge features, security, and
+              unprecedented convenience.
+            </span>
+          </div>
+
+          <Image
+            className="lg:w-72"
+            src="/svgs/credit-card.svg"
+            alt=""
+            width={200}
+            height={300}
+          />
+          {/* <img src="/images/credit-card-2.png" alt="" /> */}
+
+          <div className="flex flex-col items-start gap-8 lg:grid lg:grid-cols-3">
+            <NextGenFeatures dataArray={nextGenFeatures} />
+          </div>
+        </div>
+
+        {/* Reviews Section */}
+        <ReviewsSection />
+      </SmoothScrollProvider>
     </main>
   );
 }
