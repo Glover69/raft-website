@@ -10,11 +10,19 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) 
 
   useEffect(() => {
     document.body.style.overflowY = 'hidden';
+
+    if(document.body.style.overflowY = 'hidden'){
+        console.log('hidden');
+    }
+
     const loader = document.querySelector('.raft-loader');
     const loaderScreen = document.querySelector('.loader-screen');
+    const main = document.querySelector('main');
 
 
     function loaderFunc(){
+        // document.body.style.overflowY = 'hidden';
+        
         gsap.to(loader, 
         {
             opacity: 1,

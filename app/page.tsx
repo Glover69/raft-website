@@ -137,7 +137,6 @@ export default function Home() {
 
   return (
     <main data-scroll-container className="main-container w-full relative">
-      <SmoothScrollProvider options={{ smooth: true }}>
         <LoadingScreen onAnimationCompletion={handleLoadingScreenComplete} />
         {/* {loadingScreenComplete && <Navbar onAnimationStart={handleNavbarAnimationStart} />} */}
         <Navbar
@@ -251,7 +250,6 @@ export default function Home() {
 
         {/* Reviews Section */}
         <ReviewsSection />
-      </SmoothScrollProvider>
     </main>
   );
 }
