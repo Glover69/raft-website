@@ -15,6 +15,10 @@ import ConfidentFutureCards from "../components/confident-future-cards";
 import VideoBackground from "../components/videoBackground";
 import NextGenFeatures from "../components/nextGenFeatures";
 import CountingStats from "../components/countingStats";
+import ReviewsSection from "../components/reviews-section";
+import LoadingScreen from "../components/loading-page";
+import { useEffect, useState } from "react";
+import gsap from "gsap";
 
 
 export default function Home() {
@@ -63,10 +67,22 @@ export default function Home() {
     background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%)',
   };
 
+  const [loadingScreenComplete, setLoadingScreenComplete] = useState(false);
+
+  const handleLoadingScreenComplete = () => {
+    //  state to indicate that LoadingScreen animation is complete
+    setLoadingScreenComplete(true);
+  };
+
+
   return (
-    <main className="main-container w-full">
-      <Navbar />
-      <Hero />
+    
+    
+    <main className="main-container w-full relative">
+      <LoadingScreen onAnimationCompletion={handleLoadingScreenComplete}/>
+      {/* {loadingScreenComplete && <Navbar onAnimationStart={handleNavbarAnimationStart} />} */}
+      <Navbar onAnimationStart={loadingScreenComplete} />
+      <Hero onAnimationStart={loadingScreenComplete} />
       <FeatureSection/>
 
       <div className="journey-section flex flex-col items-center justify-center gap-24 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">
@@ -143,6 +159,9 @@ export default function Home() {
         </div>
        
       </div>
+
+      {/* Reviews Section */}
+      <ReviewsSection/>
       
 
       

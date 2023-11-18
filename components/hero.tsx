@@ -1,7 +1,8 @@
 // components/Navbar.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import gsap from "gsap";
 
 const divStyle: React.CSSProperties = {
     backgroundImage: 'url("/images/mesh-bg.png")',
@@ -22,9 +23,32 @@ const divStyle: React.CSSProperties = {
     background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%)',
   };
 
-const Hero: React.FC = () => {
+  interface HeroProps{
+    onAnimationStart: boolean;
+  }
+
+const Hero: React.FC<HeroProps> = ({ onAnimationStart }) => {
+
+  useEffect(() => {
+
+    if(onAnimationStart){
+
+      console.log('Hello');
+
+      const hero = document.querySelector('.main-hero-wrapper');
+
+      gsap.to(hero, {
+        opacity: 1,
+        delay: 2,
+        duration: 1,
+      });
+
+    } 
+
+  })
+
   return (
-    <div className="main-hero flex flex-col items-center justify-center px-6 md:px-10 3xl:px-12 py-24 gap-20">
+    <div className="main-hero-wrapper opacity-0 flex flex-col items-center justify-center px-6 md:px-10 3xl:px-12 py-24 gap-20">
      <div style={divStyle} className="hero-upper flex flex-col items-center gap-4">
         <div className="card flex flex-row items-center gap-2 rounded-[6rem] py-2 px-4 border-[0.2px] border-[#989898] bg-[#FFFFFF26] backdrop-blur-[10px]">
             <span className="SFRegular text-[#DCDCDC]">Introducing Raft Cards</span>
