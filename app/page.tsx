@@ -68,10 +68,15 @@ export default function Home() {
   };
 
   const [loadingScreenComplete, setLoadingScreenComplete] = useState(false);
+  const [navbarComplete, setNavbarComplete] = useState(false);
 
   const handleLoadingScreenComplete = () => {
     //  state to indicate that LoadingScreen animation is complete
     setLoadingScreenComplete(true);
+  };
+
+  const handleNavbarAnimationComplete = () => {
+    setNavbarComplete(true);
   };
 
 
@@ -81,8 +86,8 @@ export default function Home() {
     <main className="main-container w-full relative">
       <LoadingScreen onAnimationCompletion={handleLoadingScreenComplete}/>
       {/* {loadingScreenComplete && <Navbar onAnimationStart={handleNavbarAnimationStart} />} */}
-      <Navbar onAnimationStart={loadingScreenComplete} />
-      <Hero onAnimationStart={loadingScreenComplete} />
+      <Navbar onAnimationStart={loadingScreenComplete} onAnimationEnd={handleNavbarAnimationComplete} />
+      <Hero onAnimationStart={navbarComplete} />
       <FeatureSection/>
 
       <div className="journey-section flex flex-col items-center justify-center gap-24 px-6 py-24 md:px-10 xl:px-14 2xl:px-32 3xl:px-40">

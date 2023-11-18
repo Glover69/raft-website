@@ -9,6 +9,7 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) => {
 
   useEffect(() => {
+    document.body.style.overflowY = 'hidden';
     const loader = document.querySelector('.raft-loader');
     const loaderScreen = document.querySelector('.loader-screen');
 
@@ -48,7 +49,6 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) 
                     onAnimationCompletion();
                 }
             });
-            // document.body.style.overflowY = 'hidden';
         }
     })
    

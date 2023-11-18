@@ -7,10 +7,10 @@ import LoadingScreen from "./loading-page";
 
 interface NavbarProps {
   onAnimationStart: boolean;
-  // onAnimationEnd: () => void;
+  onAnimationEnd: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onAnimationStart }) => {
+const Navbar: React.FC<NavbarProps> = ({ onAnimationStart, onAnimationEnd }) => {
 
   useEffect(() => {
 
@@ -45,12 +45,12 @@ const Navbar: React.FC<NavbarProps> = ({ onAnimationStart }) => {
        duration: 1,
 
        onComplete: () => {
-        // onAnimationEnd();
+        onAnimationEnd();
        }
      });
     }
 
-  }, [onAnimationStart]);
+  }, [onAnimationStart, onAnimationEnd]);
 
 
   
