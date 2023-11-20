@@ -94,10 +94,12 @@ const Hero: React.FC<HeroProps> = ({ onAnimationStart }) => {
         delay: 3.5,
 
         onComplete: () => {
-          document.body.style.overflowY = "scroll";
-
-          if ((document.body.style.overflowY = "scroll")) {
-            console.log("scroll");
+          const htmlElement = document.querySelector('html');
+          // htmlElement.style.overflowY = 'hidden';
+      
+          if(htmlElement){
+              console.log('scroll');
+              htmlElement.style.overflowY = 'scroll';
           }
         },
       });

@@ -8,10 +8,12 @@ html{
   background-color: black;
   color: white;
   max-width: 100%;
+  overflow-x: hidden;
 }
 
 body{
   overflow-x: hidden;
+  /* overflow-y: hidden; */
 }
 
 @media (max-width: 767px) {

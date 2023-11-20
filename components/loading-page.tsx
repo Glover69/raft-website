@@ -9,10 +9,12 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) => {
 
   useEffect(() => {
-    document.body.style.overflowY = 'hidden';
+    const htmlElement = document.querySelector('html');
+    // htmlElement.style.overflowY = 'hidden';
 
-    if(document.body.style.overflowY = 'hidden'){
+    if(htmlElement){
         console.log('hidden');
+        htmlElement.style.overflowY = 'hidden';
     }
 
     const loader = document.querySelector('.raft-loader');
@@ -20,9 +22,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) 
     const main = document.querySelector('main');
 
 
-    function loaderFunc(){
-        // document.body.style.overflowY = 'hidden';
-        
+    function loaderFunc(){        
         gsap.to(loader, 
         {
             opacity: 1,
@@ -36,7 +36,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) 
     loaderFunc();
 
     gsap.to(loaderFunc, {
-        duration: 7.5,
+        duration: 4.5,
 
         onComplete: () => {
             gsap.to(loader, {
