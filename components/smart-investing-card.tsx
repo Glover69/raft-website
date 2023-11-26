@@ -16,7 +16,7 @@ const overlay: React.CSSProperties = {
 
 const SmartInvestingCard: React.FC = () => {
   return (
-    <div className="card md:max-lg:w-[65%] lg flex flex-col items-center rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
+    <div className="smartinvestingcard md:max-lg:w-[65%] lg flex flex-col items-center rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
       <div
         style={cardTopBG}
         className="top overflow-hidden w-full relative py-8 flex flex-col items-end gap-2"

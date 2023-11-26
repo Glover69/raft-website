@@ -20,7 +20,7 @@ interface transBoxes{
 
 const SeamlessPaymentsCard: React.FC<transBoxes> = ({dataArray}) => {
   return (
-    <div className="card md:max-lg:w-[65%] lg:h-full px-5 flex flex-col items-center justify-center lg:col-span-2 rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
+    <div className="seamlesscard md:max-lg:w-[65%] lg:h-full px-5 flex flex-col items-center justify-center lg:col-span-2 rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
       <div
         style={cardTopBG}
         className="top overflow-hidden w-full relative py-8 flex flex-col items-center gap-2"

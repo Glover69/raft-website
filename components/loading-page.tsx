@@ -10,10 +10,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) 
 
   useEffect(() => {
     const htmlElement = document.querySelector('html');
-    // htmlElement.style.overflowY = 'hidden';
 
     if(htmlElement){
-        console.log('hidden');
         htmlElement.style.overflowY = 'hidden';
     }
 
@@ -36,18 +34,18 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onAnimationCompletion }) 
     loaderFunc();
 
     gsap.to(loaderFunc, {
-        duration: 4.5,
+        duration: 5,
 
         onComplete: () => {
-            gsap.to(loader, {
-                opacity: 0,
-                duration: 0.5,
-                ease: 'power1.in'
-            });
+            // gsap.to(loader, {
+            //     opacity: 0,
+            //     duration: 0.5,
+            //     ease: 'power1.in'
+            // });
 
             gsap.to(loaderScreen, {
                 display: 'none',
-                height: 0,
+                // height: 0,
                 opacity: 0,
                 delay: 0.5,
                 duration: 1,

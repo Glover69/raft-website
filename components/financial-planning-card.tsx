@@ -26,7 +26,7 @@ interface iconBoxes {
 
 const FinancialPlanningCard: React.FC<iconBoxes> = ({ dataArray }) => {
   return (
-    <div className="card md:max-lg:w-[65%] px-5 flex flex-col lg:col-span-2 items-center rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
+    <div className="financial-planning-card md:max-lg:w-[65%] px-5 flex flex-col lg:col-span-2 items-center rounded-lg w-full border border-[#FFFFFF0A] bg-[#131313]">
       <div
         style={cardTopBG}
         className="top overflow-hidden w-full relative py-8 flex items-center justify-center"
