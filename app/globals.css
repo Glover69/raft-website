@@ -29,6 +29,15 @@ body{
   }
 }
 
+/* .qr-code-container {
+  border-width: 2px;
+  border-image: repeating-linear-gradient(to right, #333, #333 10px, transparent 10px, transparent 20px);
+  border-image-slice: 1;
+  border-style: solid;
+  border-radius: 10px; 
+} */
+
+
 
 /* // Poppins font */
 

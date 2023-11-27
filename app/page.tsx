@@ -22,6 +22,7 @@ import gsap from "gsap";
 import locomotiveScroll from "locomotive-scroll";
 import { SmoothScrollProvider } from "../public/contexts/SmoothScroll.context";
 import JourneySection from "@/components/journey-section";
+import Footer from "@/components/footer";
 
 export default function Home() {
   // const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -219,6 +220,7 @@ export default function Home() {
 
         {/* Reviews Section */}
         <ReviewsSection />
+        <Footer/>
     </main>
   );
 }
