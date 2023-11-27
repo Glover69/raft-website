@@ -86,7 +86,7 @@ const Footer = () => {
 
       <div className="flex flex-row items-center justify-between w-full">
         <div className="flex flex-row items-center gap-2">
-          <span className="SFRegular">English (United Kingdom)</span>
+          <span className="SFRegular text-sm md:text-base">English (United Kingdom)</span>
           <Image
               className=""
               src="/svgs/chevron-down.svg"
@@ -96,7 +96,7 @@ const Footer = () => {
             />
         </div>
 
-        <span className="SFRegular">&copy; Raft Corp, LLC.</span>
+        <span className="SFRegular text-sm md:text-base">&copy; Raft Corp, LLC.</span>
       </div>
 
       
