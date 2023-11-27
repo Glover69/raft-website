@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-16 px-6 py-24 md:px-10 xl:px-24 3xl:px-32">
+    <div className="flex flex-col items-center justify-center gap-16 px-6 py-24 pb-8 md:px-10 xl:px-24 3xl:px-32">
       <div className="top w-full">
         <div className="border-b border-b-[#3D3D3D] pb-10 w-full">
           <div className="flex flex-row items-center w-full">
@@ -51,8 +51,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="link-group flex flex-row items-center gap-6 flex-wrap lg:flex-nowrap gap-y-8">
-        <div className="link-section flex flex-col gap-4 items-start w-[45%]">
+      <div className="link-group flex flex-row items-start gap-6 lg:gap-12 flex-wrap lg:flex-nowrap gap-y-8">
+        <div className="link-section flex flex-col gap-4 items-start w-[45%] md:w-1/5 lg:w-32 xl:w-40">
           <span className="link-title SFMedium text-xl">About us</span>
 
           <div className="flex flex-col items-start gap-2">
@@ -63,26 +63,40 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="link-section flex flex-col gap-4 items-start w-[45%]">
-          <span className="link-title SFMedium text-xl">About us</span>
+        <div className="link-section flex flex-col gap-4 items-start w-[45%] md:w-1/5 lg:w-32 xl:w-40">
+          <span className="link-title SFMedium text-xl">Legal</span>
 
           <div className="flex flex-col items-start gap-2">
-            <span className="links SFRegular text-[#EFEFEF]">Our Company</span>
-            <span className="links SFRegular text-[#EFEFEF]">Careers</span>
-            <span className="links SFRegular text-[#EFEFEF]">Press kits</span>
+            <span className="links SFRegular text-[#EFEFEF]">Terms of use</span>
+            <span className="links SFRegular text-[#EFEFEF]">Privacy Policy</span>
+            <span className="links SFRegular text-[#EFEFEF]">About us</span>
           </div>
         </div>
 
-        <div className="link-section flex flex-col gap-4 items-start w-[45%]">
-          <span className="link-title SFMedium text-xl">About us</span>
+        <div className="link-section flex flex-col gap-4 items-start w-[45%] md:w-1/5 lg:w-32 xl:w-40">
+          <span className="link-title SFMedium text-xl">Support</span>
 
           <div className="flex flex-col items-start gap-2">
-            <span className="links SFRegular text-[#EFEFEF]">Our Company</span>
-            <span className="links SFRegular text-[#EFEFEF]">Careers</span>
-            <span className="links SFRegular text-[#EFEFEF]">Press kits</span>
+            <span className="links SFRegular text-[#EFEFEF]">Contact Us</span>
+            <span className="links SFRegular text-[#EFEFEF]">FAQ&apos;s</span>
           </div>
         </div>
       </div>
+      </div>
+
+      <div className="flex flex-row items-center justify-between w-full">
+        <div className="flex flex-row items-center gap-2">
+          <span className="SFRegular">English (United Kingdom)</span>
+          <Image
+              className=""
+              src="/svgs/chevron-down.svg"
+              alt=""
+              width={20}
+              height={20}
+            />
+        </div>
+
+        <span className="SFRegular">&copy; Raft Corp, LLC.</span>
       </div>
 
       
